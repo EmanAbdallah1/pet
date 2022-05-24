@@ -1,0 +1,262 @@
+<div class="wrapper d-flex flex-column flex-row-fluid">
+    <div class="">
+        <div class="home">
+            <app-nav></app-nav>
+            <app-sidebar></app-sidebar>
+            <app-icon-nav></app-icon-nav>
+            <div class="fxt-content animate__animated animate__zoomIn">
+                <form #regsiterForm="ngForm" (ngSubmit)="Save()">
+
+                    <mat-horizontal-stepper>
+
+                        <ng-template matStepperIcon="edit">
+                            <mat-icon>done</mat-icon>
+                        </ng-template>
+                        <ng-template matStepLabel>
+                            <span [ngStyle]="{ 'max-width.px': '300' }"></span>
+                        </ng-template>
+
+                        <mat-step>
+                            <h2 style="width: 10%;">{{'users.client-details' | translate}}</h2>
+                            <div class="row">
+                                <div class="form-group col-lg-6">
+                                    <label [class.text-danger]="firstName.errors?.required && firstName.touched">{{'users.firstname' |
+                    translate}} <span class="text-danger">*</span></label>
+                                    <input class="form-control" [(ngModel)]="model.firstName" #firstName="ngModel" required name="firstName" type="text" />
+                                    <span class="help-block text-danger" *ngIf="firstName.errors?.required && firstName.touched">
+                    {{'users.firstname-required' | translate}}
+                  </span>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label> {{'users.fathername' | translate}}</label>
+                                    <input class="form-control" [(ngModel)]="model.fatherName" name="fatherName" type="text" />
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    <label [class.text-danger]="familyName.errors?.required && familyName.touched"> {{'users.famelyname' |
+                    translate}} <span class="text-danger">*</span></label>
+                                    <input class="form-control" [(ngModel)]="model.familyName" #familyName="ngModel" required name="familyName" type="text" />
+                                    <span class="help-block text-danger" *ngIf="familyName.errors?.required && familyName.touched">
+                    {{'users.famelyname-required' | translate}}
+                  </span>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label> {{'users.alsoname' | translate}}</label>
+                                    <input class="form-control" [(ngModel)]="model.andAlso" name="andAlso" type="text" />
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="clientCategoryId" [class.text-danger]="clientCategoryId.errors?.required && clientCategoryId.touched">{{'settings.client-category'
+                    | translate}} <span class="text-danger">*</span>
+                  </label>
+                                    <mat-form-field appearance="fill">
+                                        <mat-select [(ngModel)]="model.clientCategoryId" #clientCategoryId="ngModel" required name="clientCategoryId">
+                                            <mat-option>--</mat-option>
+                                            <mat-option *ngFor="let category of ClientCategories" [value]="category.id">
+                                                {{ isLangAr? category.nameAr : category.nameEn}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <span class="help-block text-danger" *ngIf="clientCategoryId.errors?.required && clientCategoryId.touched">
+                    {{'settings.client-category-required' | translate}}
+                  </span>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label> {{'users.dateofbirth' | translate}}</label>
+                                    <input [(ngModel)]="model.dateOfBirth" name="dateOfBirth" class="form-control" type="date" />
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label> {{'users.collectionlimit' | translate}} </label>
+                                    <input [(ngModel)]="model.collectionLimit" name="collectionLimit" class="form-control" type="number" />
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>{{'Dealer.discount' | translate}} </label>
+                                    <mat-form-field appearance="fill">
+                                        <mat-select [(ngModel)]="model.discountId" name="discountId">
+                                            <mat-option>--</mat-option>
+                                            <mat-option *ngFor="let discount of Discounts" [value]="discount.id">
+                                                {{ discount.title}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>{{'settings.gender' | translate}} </label>
+                                    <mat-form-field appearance="fill">
+                                        <mat-select [(ngModel)]="model.genderId" name="genderId" (selectionChange)="GetSalutaion($event.value)">
+                                            <mat-option>--</mat-option>
+                                            <mat-option *ngFor="let gender of Genders" [value]="gender.id">
+                                                {{ isLangAr? gender.nameAr : gender.nameEn}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>{{'settings.salutation' | translate}}
+                    <!--النوع-->
+                  </label>
+                                    <mat-form-field appearance="fill">
+                                        <mat-select [(ngModel)]="model.salutationId" name="salutationId">
+                                            <mat-option>--</mat-option>
+                                            <mat-option *ngFor="let salutation of Salutations" [value]="salutation.id">
+                                                {{ isLangAr? salutation.nameAr : salutation.nameEn}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label [class.text-danger]="idTypeId.errors?.required && idTypeId.touched">{{'settings.idType' |
+                    translate}} <span class="text-danger">*</span>
+                    <!--نوع الهوية-->
+                  </label>
+                                    <mat-form-field appearance="fill">
+                                        <mat-select [(ngModel)]="model.idTypeId" #idTypeId="ngModel" required name="idTypeId">
+                                            <mat-option>--</mat-option>
+                                            <mat-option *ngFor="let idType of IdTypes" [value]="idType.id">
+                                                {{ isLangAr? idType.nameAr : idType.nameEn}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <span class="help-block text-danger" *ngIf="idTypeId.errors?.required && idTypeId.touched">
+                    {{'settings.idType-required' | translate}}
+                  </span>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label [class.text-danger]="idNumber.errors?.required && idNumber.touched"> {{'users.idnumber' |
+                    translate}} <span class="text-danger">*</span></label>
+                                    <input [(ngModel)]="model.idNumber" #idNumber="ngModel" required name="idNumber" class="form-control" type="text" />
+                                    <span class="help-block text-danger" *ngIf="idNumber.errors?.required && idNumber.touched">
+                    {{'users.idNumber-required' | translate}}
+                  </span>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label> {{'users.favorite-vet' | translate}} </label>
+                                    <mat-form-field appearance="fill">
+                                        <mat-select [(ngModel)]="model.favoriteVitId" name="favoriteVitId">
+                                            <mat-option>--</mat-option>
+                                            <mat-option *ngFor="let vet of Vets" [value]="vet.id">
+                                                {{ vet.firstName+' '+vet.fatherName+' '+vet.familyName}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label [class.text-danger]="preferredLanguageId.errors?.required && preferredLanguageId.touched">{{'settings.preferredLanguage'| translate}} 
+                                       <span class="text-danger">*</span></label>
+                                    <mat-form-field appearance="fill">
+                                        <mat-select [(ngModel)]="model.preferredLanguageId" #preferredLanguageId="ngModel" required name="preferredLanguageId">
+                                            <mat-option>--</mat-option>
+                                            <mat-option *ngFor="let preferredLanguage of PreferredLanguages" [value]="preferredLanguage.id">
+                                                {{ isLangAr? preferredLanguage.nameAr : preferredLanguage.nameEn}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <span class="help-block text-danger" *ngIf="preferredLanguageId.errors?.required && preferredLanguageId.touched">
+                    {{'settings.preferredLanguage-required' | translate}}
+                  </span>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label [class.text-danger]="perceivingMethodId.errors?.required && perceivingMethodId.touched">{{'settings.perMethod'
+                    | translate}} <span class="text-danger">*</span>
+                    <!--كيف سمعت عنا ؟-->
+                  </label>
+                                    <mat-form-field appearance="fill">
+                                        <mat-select [(ngModel)]="model.perceivingMethodId" #perceivingMethodId="ngModel" required name="perceivingMethodId">
+                                            <mat-option>--</mat-option>
+                                            <mat-option *ngFor="let perceivingMethod of PerceivingMethods" [value]="perceivingMethod.id">
+                                                {{ isLangAr? perceivingMethod.nameAr : perceivingMethod.nameEn}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <span class="help-block text-danger" *ngIf="perceivingMethodId.errors?.required && perceivingMethodId.touched">
+                    {{'settings.perMethod-required' | translate}}
+                  </span>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label> {{'users.client-note' | translate}} </label>
+                                    <textarea [(ngModel)]="model.note" name="Note" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <button mat-button matStepperNext type="button" class="btn btn-primary"> {{'shared.next' | translate}}</button>
+                        </mat-step>
+
+                        <mat-step>
+                            <h2 style="width: 11%;">{{'users.address-details' | translate}}</h2>
+                            <div class="row">
+                                <div class="form-group col-lg-6">
+                                    <label [class.text-danger]="cityId.errors?.required && cityId.touched">{{'settings.city' | translate}}
+                                       <span class="text-danger">*</span></label>
+                                    <mat-form-field appearance="fill">
+                                        <mat-select [(ngModel)]="model.cityId" #cityId="ngModel" required name="cityId" (selectionChange)="GetDistricts($event.value)">
+                                            <mat-option>--</mat-option>
+                                            <mat-option *ngFor="let city of Cities" [value]="city.id">
+                                                {{ isLangAr? city.nameAr : city.nameEn}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <span class="help-block text-danger" *ngIf="cityId.errors?.required && cityId.touched">
+                                      {{'settings.city-required' | translate}}
+                                    </span>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label [class.text-danger]="districtId.errors?.required && districtId.touched">{{'settings.district' | translate}} 
+                                       <span class="text-danger">*</span></label>
+                                    <mat-form-field appearance="fill">
+                                        <mat-select [(ngModel)]="model.districtId" #districtId="ngModel" required name="districtId">
+                                            <mat-option>--</mat-option>
+                                            <mat-option *ngFor="let district of Districts" [value]="district.id">
+                                                {{ isLangAr? district.nameAr : district.nameEn}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <span class="help-block text-danger" *ngIf="districtId.errors?.required && districtId.touched">
+                                      {{'settings.district-required' | translate}}
+                                    </span>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>{{'users.street' | translate}}</label>
+                                    <input [(ngModel)]="model.street" name="Street" type="text" class="form-control" />
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>{{'users.building' | translate}}</label>
+                                    <input [(ngModel)]="model.buildingNumber" name="BuildingNumber" type="text" class="form-control" />
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>{{'users.apartment' | translate}}</label>
+                                    <input [(ngModel)]="model.apartmentNumber" name="ApartmentNumber" type="text" class="form-control" />
+                                </div>
+                            </div>
+                            <button mat-button matStepperNext type="button" class="btn btn-primary">{{'shared.next' | translate}} </button>
+                            <button mat-button matStepperPrevious type="button" class="btn btn-secondary">{{'shared.back' | translate}}</button>
+                        </mat-step>
+
+                        <mat-step>
+                            <h2 style="width: 11%;"> {{'users.contact-details' | translate}}</h2>
+
+                            <div class="row">
+                                <div class="form-group col-lg-6">
+                                    <label>{{'shared.email' | translate}}</label>
+                                    <input [(ngModel)]="model.email" name="Email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" type="email" class="form-control" />
+                                    <span class="help-block text-danger" *ngIf="email.errors?.pattern && email.touched">
+                                        {{'users.email-pattern' | translate}}
+                                      </span>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label [class.text-danger]="mobileNumber.errors?.required && mobileNumber.touched"> {{'shared.phone' | translate}}
+                                       <span class="text-danger">*</span></label>
+                                    <input [(ngModel)]="model.mobileNumber" #mobileNumber="ngModel" required name="mobileNumber" type="tel" class="form-control" />
+                                    <span class="help-block text-danger" *ngIf="mobileNumber.errors?.required && mobileNumber.touched">
+                                      {{'users.phone-required' | translate}}
+                                    </span>
+                                </div>
+                            </div>
+                            <button mat-button type="submit" [disabled]="regsiterForm.invalid" class="btn btn-success mx-2"> {{'shared.done' | translate}} </button>
+                            <button mat-button matStepperPrevious type="button" class="btn btn-secondary">  {{'shared.back' | translate}} </button>
+
+                        </mat-step>
+                    </mat-horizontal-stepper>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

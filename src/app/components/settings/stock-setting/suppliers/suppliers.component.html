@@ -1,0 +1,85 @@
+<div
+  class="card card-xxl-stretch mb-5 mb-xl-8 animate__animated animate__zoomIn"
+  *ngIf="currDiv == 'suppliers'"
+>
+  <!--begin::Header-->
+  <div
+    class="card-header align-items-center d-flex border-0 pt-5"
+    style="margin-left: 1rem; margin-top: 1rem"
+  >
+    <h3 class="card-title d align-items-center flex-column">
+      <span class="card-label fw-bolder fs-3 mb-1">{{ 'settings.SupplierDetails' | translate }}  </span>
+    </h3>
+    <div></div>
+  </div>
+  <!--end::Header-->
+  <!--begin::Body-->
+  <div class="card-body py-3">
+    <!--begin::Table container-->
+   
+    <form>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="exampleInputEmail1">{{'shared.name' | translate }}</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+              <label for="exampleInputEmail1">{{'shared.description' | translate }}</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+            </div>
+          </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="exampleInputEmail1"> {{ 'settings.RecordNumber' | translate }} </label>
+            <input
+            type="number"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          </div>
+       
+          <div
+          class="
+            form-check form-check-sm form-check-custom form-check-solid
+            mb-3
+            mt-3
+          "
+        >
+          <mat-slide-toggle>{{'shared.active-nonactive' | translate }}  </mat-slide-toggle>
+        </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <label for="exampleInputEmail1">{{ 'settings.VATRegistrationNumber' | translate }}     </label>
+            <input
+            type="number"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+          />
+          </div>
+   
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mb-3 mt-3">{{'shared.search' | translate }}</button>
+    </form>
+
+    <!--end::Table container-->
+  </div>
+  <!--begin::Body-->
+</div>
+

@@ -1,0 +1,252 @@
+#sidebarCollapse{
+  position: absolute;
+  right: -48px;
+  top: 18rem;
+  transition: 0.5s ease-in-out;
+}
+
+.fa-gear:before, .fa-cog:before {
+  content: "";
+  font-size: 22px;
+}
+h3{
+  font-family: cairo !important;
+}
+.text-gray-800{
+  margin-right: 10px;
+  font-family: cairo !important;
+
+}
+// .col-lg-8{
+//   margin-top: 2rem;
+// }
+.col-lg-8 {
+  flex: 0 0 auto;
+  width: 71.666667%!important;
+}
+.set{
+  direction: rtl;
+}
+table{
+  font-family: cairo !important;
+
+}
+td{
+  font-weight: bold;
+}
+::ng-deep .table tbody tr td, .table tbody tr th, .table tfoot tr td, .table tfoot tr th {
+  font-weight: bold!important;
+  text-align: center!important;
+}
+.table > :not(:last-child) > :last-child > * {
+  border-bottom-color: inherit;
+  text-align: center!important;
+}
+::ng-deep .table tbody tr, .table tfoot tr {
+  border-bottom: 1px !important; 
+}
+::ng-deep .table.table-row-gray-300 tr {
+  border-bottom-color: #e4e6ef!important;
+  border-bottom: 1px dotted #e4e6ef!important;
+}
+::ng-deep .form-check {
+//    display: unset!important; 
+//    min-height: unset!important; 
+//    padding-left: unset!important; 
+//  margin-bottom: unset!important; 
+display: block;
+margin: auto;
+  text-align: center!important;
+}
+::ng-deep th{
+  color: #525252!important;
+}
+::ng-deep td{
+  color: gray!important;
+}
+::ng-deep .btn-group-sm > .btn.btn-icon, .btn.btn-icon.btn-sm {
+  height: calc(1em + 1.1rem + 2px)!important;
+  width: calc(1em + 1.1rem + 2px)!important;
+}
+.search{
+  padding: 3px;
+    width: 22%;
+    margin-bottom: 1rem;
+}
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start!important;
+  margin: 0;
+}
+.active-pg a{
+  background: #adff2f59;
+  padding: 5px;
+  border-radius:50%;
+}
+::ng-deep .page-item .page-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:2rem!important;
+  min-width: 2rem!important;
+  font-weight: 500;
+  font-size: 1.075rem;
+  border-radius: 50%!important;
+}
+.pagination{
+  padding-right: 0;
+}
+h3{
+  margin-bottom: 1rem;
+    margin-top: 0;
+}
+.btn-warning{
+    font-family: cairo;
+    font-weight: bold;
+    font-size: 14px;
+}
+.btn-danger{
+    margin-right: 5px;
+}
+.card-header   .btn-danger{
+  font-family: cairo;
+  font-weight: bold;
+  font-size: 14px;
+}
+.search{
+  padding: 3px;
+  width: 22%;
+  margin-bottom: 0rem!important;
+  color: gray!important;
+  margin-bottom: 1rem;
+}
+body > app-root > app-setting > div > div > div > div > div > div.col-lg-8.animate__animated.animate__zoomIn.ng-star-inserted > app-company-contact > div > div.card-body.py-3 > div.d-flex.align-items-center > p{
+color: gray!important;
+font-size: 14px;
+}
+.form-control{
+padding: 3px;
+margin-top: 0.5rem;
+margin-bottom: 0.5rem;
+}
+.card{
+  font-family:cairo;
+  font-weight: bold;
+}
+.row > *{
+flex-shrink: 0;
+width: 50%!important;}
+ 
+  .card .card-header {
+
+      padding: 0!important;
+
+  }
+ label{
+     font-size: 15px;
+     color: #646363;
+ }
+ .card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+  min-height: 30px;
+  padding: 0 2.25rem;
+  background-color: transparent;
+  border-bottom: 1px solid #eff2f5;
+  margin-bottom: 1rem;
+}
+.btn:not(.btn-outline):not(.btn-dashed):not(.border-hover):not(.border-active):not(.btn-flush):not(.btn-icon) {
+border: 0;
+padding: 8px 15px;
+font-weight: bold;
+font-size: 16px;
+}
+.edit .form-check{
+text-align: unset!important;
+}
+::ng-deep .mat-form-field-type-mat-select:not(.mat-form-field-disabled) .mat-form-field-flex {
+  cursor: pointer!important;
+  font-size: 1.1rem!important;
+  font-weight: 500!important;
+  color: #181c32!important;
+  background-color: #fff!important;
+  background-clip: padding-box!important;
+  border: 1px solid #e4e6ef!important;
+  -webkit-appearance: none!important;
+  -moz-appearance: none!important;
+  appearance: none!important;
+  border-radius: 0.475rem!important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out!important;
+  padding: 0;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0px!important;
+}
+
+::ng-deep .mat-form-field {
+
+  width: 100%;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+
+}
+::ng-deep .mat-form-field-underline {
+
+  display: none;
+}
+.uploadimg{
+  width: 70px;
+  height: 70px;
+}
+::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background: #7239ea;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 13px;
+}
+::ng-deep  .mat-slide-toggle-content{
+  font-family: cairo!important;
+  margin-right: 10px;
+}
+::ng-deep  .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #009ef7;
+}
+::ng-deep  .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: rgb(0 158 247 / 46%);
+}
+.table-logo{
+  width: 25%;
+}
+::ng-deep  body > app-root > app-setting > div > div > div > div > div > div.col-lg-8.animate__animated.animate__zoomIn.ng-star-inserted > app-branches > div > div.card-body.py-3 > div.d-flex.align-items-center > p{
+  font-size: 16px!important;
+  color: gray;
+}
+::ng-deep .btn-check:active + .btn.btn-active-color-primary, .btn-check:checked + .btn.btn-active-color-primary, .btn.btn-active-color-primary.active, .btn.btn-active-color-primary.show, .btn.btn-active-color-primary:active:not(.btn-active), .btn.btn-active-color-primary:focus:not(.btn-active), .btn.btn-active-color-primary:hover:not(.btn-active), .show > .btn.btn-active-color-primary {
+  color: white !important;
+}
+::ng-deep .btn-check:active + .btn.btn-active-color-primary .svg-icon svg [fill]:not(.permanent):not(g), .btn-check:checked + .btn.btn-active-color-primary .svg-icon svg [fill]:not(.permanent):not(g), .btn.btn-active-color-primary.active .svg-icon svg [fill]:not(.permanent):not(g), .btn.btn-active-color-primary.show .svg-icon svg [fill]:not(.permanent):not(g), .btn.btn-active-color-primary:active:not(.btn-active) .svg-icon svg [fill]:not(.permanent):not(g), .btn.btn-active-color-primary:focus:not(.btn-active) .svg-icon svg [fill]:not(.permanent):not(g), .btn.btn-active-color-primary:hover:not(.btn-active) .svg-icon svg [fill]:not(.permanent):not(g), .show > .btn.btn-active-color-primary .svg-icon svg [fill]:not(.permanent):not(g) {
+transition: fill 0.3s ease;
+fill: white !important;
+}
+::ng-deep  a{
+  text-decoration: none!important;
+}

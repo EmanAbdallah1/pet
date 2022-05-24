@@ -1,0 +1,64 @@
+<div class="card card-xxl-stretch mb-5 mb-xl-8 animate__animated animate__zoomIn" *ngIf="currDiv == 'brole'">
+    <!--begin::Header-->
+    <div class="card-header align-items-center d-flex border-0 pt-5" style="    margin-left: 1rem;
+    margin-top: 1rem;">
+        <h3 class="card-title d align-items-center flex-column">
+            <span class="card-label fw-bolder fs-3 mb-1"> {{ 'settings.branchroles' | translate }}</span>
+        </h3>
+
+    </div>
+    <!--end::Header-->
+    <!--begin::Body-->
+    <div class="card-body py-3" style="padding-top:0!important;">
+        <select class="form-control select2 form-select"  aria-label="Default select example" formControlName="replytype" type="text" style="width: 100%;" #cricket (change)="update($event)">
+            <option *ngFor="let player of players" [value]="player">
+                {{player}}
+            </option>       
+            </select> 
+        <div *ngIf="selected=='Omar Store'">
+            <section class="example-section">
+                <div class="row">
+                    <div class="col-lg-4 mt-2 mb-2"> <mat-checkbox class="example-margin" [checked]= "myModel"> Petspa</mat-checkbox>
+                    </div>
+                    <div class="col-lg-4 mt-2 mb-2">                <mat-checkbox class="example-margin"> Medical Settings</mat-checkbox>
+                    </div>
+                <div class="col-lg-4 mt-2 mb-2">  <mat-checkbox class="example-margin"> Sales</mat-checkbox></div>
+                <div class="col-lg-4 mt-2 mb-2">  <mat-checkbox class="example-margin"[checked]= "myModel"> Store Branch Supervisor</mat-checkbox></div>
+                <div class="col-lg-4 mt-2 mb-2">   <mat-checkbox class="example-margin"[checked]= "myModel"> Groomer</mat-checkbox></div>
+                <div class="col-lg-4 mt-2 mb-2">   <mat-checkbox class="example-margin">Driver</mat-checkbox></div>
+                <div class="col-lg-4 mt-2 mb-2">   <mat-checkbox class="example-margin"[checked]= "myModel">Management</mat-checkbox></div>
+            </div>  
+            </section>  
+        </div>
+
+        <div *ngIf="selected=='Riydah'">
+            <section class="example-section">
+                <div class="row">
+                    <div class="col-lg-4 mt-2 mb-2"> <mat-checkbox class="example-margin" > Petspa</mat-checkbox>
+                    </div>
+                    <div class="col-lg-4 mt-2 mb-2">                <mat-checkbox class="example-margin"> Medical Settings</mat-checkbox>
+                    </div>
+                <div class="col-lg-4 mt-2 mb-2">  <mat-checkbox class="example-margin"> Sales</mat-checkbox></div>
+                <div class="col-lg-4 mt-2 mb-2">  <mat-checkbox class="example-margin"[checked]= "myModel"> Store Branch Supervisor</mat-checkbox></div>
+                <div class="col-lg-4 mt-2 mb-2">   <mat-checkbox class="example-margin"> Groomer</mat-checkbox></div>
+                <div class="col-lg-4 mt-2 mb-2">   <mat-checkbox class="example-margin">Driver</mat-checkbox></div>
+                <div class="col-lg-4 mt-2 mb-2">   <mat-checkbox class="example-margin"[checked]= "myModel">Management</mat-checkbox></div>
+            </div>  
+            </section>  
+        </div>
+        <div *ngIf="selected=='Raafat Store'">
+            <section class="example-section">
+                <div class="row">
+                    <div class="col-lg-4 mt-2 mb-2"> <mat-checkbox class="example-margin" > Petspa</mat-checkbox>
+                    </div>
+                    <div class="col-lg-4 mt-2 mb-2">                <mat-checkbox class="example-margin" [checked]= "myModel"> Medical Settings</mat-checkbox>
+                    </div>
+                <div class="col-lg-4 mt-2 mb-2">  <mat-checkbox class="example-margin"[checked]= "myModel"> Sales</mat-checkbox></div>
+                <div class="col-lg-4 mt-2 mb-2">  <mat-checkbox class="example-margin"[checked]= "myModel"> Store Branch Supervisor</mat-checkbox></div>
+                <div class="col-lg-4 mt-2 mb-2">   <mat-checkbox class="example-margin"> Groomer</mat-checkbox></div>
+                <div class="col-lg-4 mt-2 mb-2">   <mat-checkbox class="example-margin">Driver</mat-checkbox></div>
+                <div class="col-lg-4 mt-2 mb-2">   <mat-checkbox class="example-margin"[checked]= "myModel">Management</mat-checkbox></div>
+            </div>  
+            </section>  
+        </div>
+    </div>

@@ -1,0 +1,80 @@
+ body{
+    background: #72c02cb0!important;
+}
+.flex-row-fluid {
+    flex: 1 auto;
+    min-width: 0;
+}
+
+.home-cards img{
+    width: 95%;
+}
+
+a{
+cursor: pointer;
+font-size: 18px;
+}
+.card{
+    text-align: right;
+    font-family: cairo!important;
+
+}
+h2{
+    font-family: cairo;
+    font-weight: bold;
+}
+p{
+    font-family: cairo;
+    font-weight: bold;
+    line-height: 29px;
+    word-spacing: 3px;
+}
+.fa-paw:before {
+    content: "";
+    color: gray;
+    font-size: 23px;
+}
+i{
+    color: gray;
+    font-size: 23px;
+}
+li{
+    list-style-type: none;
+    font-weight: bold;
+}
+.home-data.mt-4 > div > div:nth-child(2) > div > div > p:nth-child(3) > a{
+    font-size: 15px;
+}
+.animate__zoomIn{
+    animation-delay: .5s;
+    animation: zoomIn 1s;
+}
+.animate__backInRight{
+    animation-delay: .6s;
+
+    animation: backInRight 1s;
+}
+.animate__backInUp{
+    animation-delay: .7s;
+
+    animation: backInUp 1s;
+
+}
+.col-lg-3 {
+    flex: 0 0 auto;
+    width: 25%!important;
+}
+
+.card p{
+    font-size: 15px;
+}
+.card ul li{
+    font-size: 15px;
+
+}
+i {
+    color: gray;
+    font-size: 23px;
+    float: right;
+    margin-left: 10px;
+}

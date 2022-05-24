@@ -1,0 +1,285 @@
+<div class="wrapper d-flex flex-column flex-row-fluid">
+  <div class="">
+    <div class="home">
+      <app-nav></app-nav>
+      <app-sidebar></app-sidebar>
+      <app-icon-nav></app-icon-nav>
+      <div class="fxt-content animate__animated animate__zoomIn">
+        <div class="card">
+          <div class="card-body">
+
+     
+        <div class="fxt-form ">
+<div class="controls d-flex">
+<h2>{{'users.employee-account' | translate}}</h2>
+<div class="btn-group">
+<button class="btn btn-warning animate__animated animate__fadeIn" *ngIf="showDiv.edit"
+(click)="showDiv.previous =true;showDiv.current = false;showDiv.display=true;showDiv.edit=false">
+{{'users.find-employee' | translate}}
+</button>
+      <button class="btn btn-warning animate__animated animate__fadeIn" *ngIf="showDiv.display"
+      (click)="showDiv.previous =false;showDiv.current = true;showDiv.display=false;showDiv.edit=true">
+      {{'shared.add' | translate}}
+  </button>
+</div>
+</div>
+<div class="container">
+
+<div class="row">
+
+</div>
+<div class="row">
+<div *ngIf="showDiv.previous" class="animate__animated animate__backInUp"><form method="POST">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>{{ 'settings.number' | translate }} </label>
+                <input class="form-control" type="number"/>
+            </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+              <label>       {{ 'settings.Forename' | translate }}
+              </label>
+              <input class="form-control" type="text"/>
+          </div>
+      </div>
+      <div class="col-lg-6">
+          <div class="form-group">
+              <label> {{ 'settings.NameOfTheFather' | translate }} </label>
+              <input class="form-control" type="text"/>
+          </div>
+      </div>
+      <div class="col-lg-6">
+          <div class="form-group">
+              <label>{{ 'settings.familyName' | translate }}  </label>
+              <input class="form-control" type="text"/>
+          </div>
+      </div>
+      <div class="col-lg-6">
+          <label> {{ 'settings.gender' | translate }} </label>
+
+          <mat-form-field appearance="fill">
+              <mat-select [formControl]="animalControl" required>
+                <mat-option>--</mat-option>
+                <mat-option
+                  *ngFor="let animal of animals"
+                  [value]="animal"
+                >
+                  {{ animal.name }}
+                </mat-option>
+              </mat-select>
+              <!-- <mat-error *ngIf="animalControl.hasError('required')"
+                >Please choose an animal</mat-error
+              > -->
+            </mat-form-field> 
+      </div>
+      <div class="col-lg-6">
+          <label> {{ 'settings.type' | translate }} </label>
+
+          <mat-form-field appearance="fill">
+              <mat-select [formControl]="animalControl" required>
+                <mat-option>--</mat-option>
+                <mat-option
+                  *ngFor="let animal of animals"
+                  [value]="animal"
+                >
+                  {{ animal.name }}
+                </mat-option>
+              </mat-select>
+              <!-- <mat-error *ngIf="animalControl.hasError('required')"
+                >Please choose an animal</mat-error
+              > -->
+            </mat-form-field> 
+      </div>
+      <div class="col-lg-6">
+          <div class="form-group">
+              <label class="top">  {{ 'settings.RecruitmentDate' | translate }} </label>
+              <input class="form-control" type="date"/>
+          </div>
+      </div>
+      <div class="col-lg-6">
+          <div class="form-group">
+              <label class="top">  {{ 'settings.dateOfBirth' | translate }}   </label>
+              <input class="form-control" type="date"/>
+          </div>
+      </div>
+      <div class="col-lg-6">
+          <label> {{ 'settings.idType' | translate }}  </label>
+
+          <mat-form-field appearance="fill">
+              <mat-select [formControl]="animalControl" required>
+                <mat-option>--</mat-option>
+                <mat-option
+                  *ngFor="let animal of animals"
+                  [value]="animal"
+                >
+                  {{ animal.name }}
+                </mat-option>
+              </mat-select>
+              <!-- <mat-error *ngIf="animalControl.hasError('required')"
+                >Please choose an animal</mat-error
+              > -->
+            </mat-form-field> 
+      </div>
+      <div class="col-lg-6">
+          <div class="form-group">
+              <label>رقم   الهوية </label>
+              <input class="form-control" type="number"/>
+          </div>
+      </div>
+  
+    </div>
+    <button class="btn btn-primary" type="submit">{{'shared.search' | translate }}</button>
+  </form></div>
+</div>
+</div>
+<form #regsiterForm="ngForm" (ngSubmit)="Save()" *ngIf="showDiv.edit" class="animate__animated animate__backInUp">
+              <div class="row">
+                  <div class="col-lg-6">
+                      <div class="form-group">
+                          <label>{{'settings.number' | translate}} </label>
+                          <input [(ngModel)]="model.number" name="number" class="form-control" type="number"/>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                        <label><label>{{'users.firstname' | translate}} </label> </label>
+                        <input [(ngModel)]="model.firstName" name="firstname" #firstName="ngModel" class="form-control" type="text"/>
+                        <span class="help-block text-danger" *ngIf="firstName.errors?.required && firstName.touched">
+                          {{'users.firstname-required' | translate}}</span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>{{'users.fathername' | translate}} </label>
+                        <input class="form-control" [(ngModel)]="model.fatherName" name="fatherName" type="text"/>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label>{{'users.famelyname' | translate}}  </label>
+                        <input [(ngModel)]="model.familyName" name="familyName"  #familyName="ngModel" class="form-control" type="text"/>
+                        <span class="help-block text-danger" *ngIf="familyName.errors?.required && familyName.touched">
+                          {{'users.famelyname-required' | translate}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <label> {{'settings.gender' | translate}} </label>
+
+                    <mat-form-field appearance="fill">
+                        <mat-select [(ngModel)]="model.genderId" #genderId="ngModel" required name="genderId" (selectionChange)="GetSalutaion($event.value)" >
+                          <mat-option>--</mat-option>
+                          <mat-option
+                            *ngFor="let gender of Genders"
+                            [value]="gender.id"
+                          >
+                          {{ isLangAr? gender.nameAr : gender.nameEn}}
+                          </mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="animalControl.hasError('required')"
+                          >Please choose an animal</mat-error
+                        > -->
+                      </mat-form-field> 
+                      <span class="help-block text-danger" *ngIf="genderId.errors?.required && genderId.touched">
+                        {{'settings.gender-required' | translate}}
+                      </span>
+                </div>
+                <div class="col-lg-6">
+                    <label> {{'settings.job-type' | translate}} </label>
+
+                    <mat-form-field appearance="fill">
+                        <mat-select [(ngModel)]="model.jobTypeId" name="jobTypeId" (selectionChange)="GetPositions($event.value)" >
+                          <mat-option>--</mat-option>
+                          <mat-option
+                            *ngFor="let jobType of JopTypes"
+                            [value]="jobType.id"
+                          >
+                          {{ isLangAr? jobType.nameAr : jobType.nameEn}}
+                          </mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="animalControl.hasError('required')"
+                          >Please choose an animal</mat-error
+                        > -->
+                      </mat-form-field> 
+                      <span class="help-block text-danger" *ngIf="genderId.errors?.required && genderId.touched">
+                        {{'settings.job-type-required' | translate}}</span>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="top"> {{'users.hire-date' | translate}} </label>
+                        <input  [(ngModel)]="model.hireDate" name="hireDate"  #hireDate="ngModel" class="form-control" type="date"/>
+                        <span class="help-block text-danger" *ngIf="hireDate.errors?.required && hireDate.touched">
+                          {{'users.hireDate-required' | translate}}
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="top"> {{'users.date-of-birth' | translate}}   </label>
+                        <input [(ngModel)]="model.dateOfBirth" name="dateOfBirth" class="form-control" type="date"/>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                  <label> {{'settings.position' | translate}}   </label>
+
+                  <mat-form-field  appearance="fill">
+                      <mat-select [(ngModel)]="model.positionId" name="positionId"  >
+                        <mat-option>--</mat-option>
+                        <mat-option
+                          *ngFor="let position of Positions"
+                          [value]="position.id"
+                        >
+                        {{ isLangAr? position.nameAr : position.nameEn}}
+                        </mat-option>
+                      </mat-select>
+                      <!-- <mat-error *ngIf="animalControl.hasError('required')"
+                        >Please choose an animal</mat-error
+                      > -->
+                    </mat-form-field> 
+              </div>
+                <div class="col-lg-6">
+                    <label> {{'settings.idType' | translate}}  </label>
+
+                    <mat-form-field  appearance="fill">
+                        <mat-select [(ngModel)]="model.idTypeId" #idTypeId="ngModel" name="idTypeId">
+                          <mat-option>--</mat-option>
+                          <mat-option
+                            *ngFor="let idType of IdTypes"
+                            [value]="idType.id"
+                          >
+                          {{ isLangAr? idType.nameAr : idType.nameEn}}
+                          </mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="animalControl.hasError('required')"
+                          >Please choose an animal</mat-error
+                        > -->
+                      </mat-form-field> 
+                      <span class="help-block text-danger" *ngIf="idTypeId.errors?.required && idTypeId.touched">
+                        {{'settings.idType-required' | translate}}
+                      </span>
+                </div>
+                <div class="col-lg-6 mt-2">
+                    <div class="form-group">
+                        <label>{{'users.idnumber' | translate}} </label>
+                        <input [(ngModel)]="model.idNumber" name="idNumber" #idNumber="ngModel" class="form-control" type="number"/>
+                        <span class="help-block text-danger" *ngIf="idNumber.errors?.required && idNumber.touched">
+                          {{'settings.idNumber-required' | translate}}
+                        </span>
+                    </div>
+                </div>
+            
+              </div>
+              <div>
+              <button class="btn btn-primary" type="submit">{{'shared.save' | translate}}</button>
+                 </div>
+            
+            </form>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div>

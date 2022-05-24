@@ -1,0 +1,91 @@
+<div class="wrapper d-flex flex-column flex-row-fluid">
+  <div class="header-container container-xxl align-items-center">
+    <div class="home">
+      <app-nav></app-nav>
+      <app-sidebar></app-sidebar>
+      <app-icon-nav></app-icon-nav>
+      <div class="home-content">
+        <div class="home-cards">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="card animate__animated animate__zoomIn" >
+                <div class="card-body">
+                  <h3>
+                    <a>  {{ 'settings.MedicalCare' | translate }}</a>
+                  </h3>
+                  <img src="../../../assets/media/images/2/A.png" />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card animate__animated animate__zoomIn">
+                <div class="card-body">
+                  <h3>
+                    <a> {{ 'settings.Settings' | translate }} </a>
+                  </h3>
+                  <img src="../../../assets/media/images/2/B.png" />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card animate__animated animate__zoomIn">
+                <div class="card-body">
+                  <h3>
+                    <a>{{ 'settings.NewRegistration' | translate }} </a>
+                  </h3>
+                  <img src="../../../assets/media/images/2/C.png" />
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="card animate__animated animate__zoomIn">
+                <div class="card-body">
+                  <h3>
+                    <a>{{ 'settings.Appointments' | translate }}</a>
+                  </h3>
+                  <img src="../../../assets/media/images/2/D.png" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="care-def mt-4">
+          <div class="card animate__animated animate__zoomIn">
+            <div class="card-body">
+              <h2><i class="fa fa-paw"></i> Vmed Care</h2>
+              <p>
+                {{ 'settings.about' | translate }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="home-data mt-4 mb-5">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="card animate__animated animate__zoomIn">
+                <div class="card-body">
+                  <h3> <i class="fa  fa-clock-o service-icon"></i>  {{ 'settings.workHours' | translate }} </h3>
+                 
+                    <p>  {{ 'settings.open' | translate }}</p>
+                    <p style="margin-top: 11px;">
+                      {{ 'settings.close' | translate }}
+                    </p>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card animate__animated animate__zoomIn ">
+                <div class="card-body">
+                  <h3> <i class="fa fa-plus-square service-icon"></i>  {{ 'settings.emerengcies' | translate }}   </h3>
+                  <p>  {{ 'settings.emerengcy' | translate }}</p>
+                  <p><a>vmedcare@alefah.com </a>: {{ 'settings.contact' | translate }}   </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

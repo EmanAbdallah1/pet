@@ -1,0 +1,103 @@
+<div class="wrapper d-flex flex-column flex-row-fluid">
+    <div class="">
+      <div class="home">
+        <app-nav></app-nav>
+        <app-sidebar></app-sidebar>
+        <app-icon-nav></app-icon-nav>
+        <div class="fxt-content animate__animated animate__zoomIn">
+          <div class="card">
+            <div class="card-body">
+                      <div class="fxt-form ">
+                       <h2 style="width: 10%;"> {{'users.dealer-details' | translate}}</h2>
+    
+                        <form  #regsiterForm="ngForm" (ngSubmit)="Save()">
+                          <div class="row">
+                              <div class="col-lg-6">
+                                  <div class="form-group">
+                                      <label>{{'shared.name' | translate}} </label>
+                                      <input required class="form-control"  [(ngModel)]="model.name" name="name" type="text" />
+                                  </div>
+                              </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>{{'users.license-number' | translate}} </label>
+                                    <input class="form-control"  [(ngModel)]="model.licenseNumber" name="licenseNumber" type="text"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div  class="form-group">
+                                    <label>{{'users.vat-number' | translate}} </label>
+                                    <input class="form-control" [(ngModel)]="model.vatNumber" ngModel name="vatNumber" type="text"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>   {{'shared.email' | translate}}   </label>
+                                    <input #email="ngModel" class="form-control"  [(ngModel)]="model.emailAddress" name="emailAddress" type="email"/>
+                                </div>
+                            </div>
+                            
+                            
+                          <div class="col-lg-6">
+                                <div  class="form-group">
+                                    <label> {{'settings.city' | translate}}   </label>
+                                    <mat-form-field  appearance="fill">
+                                        <mat-select  [(ngModel)]="model.cityId" name="cityId"  [formControl]="cityControl"  required>
+                                          <mat-option >--</mat-option>
+                                          <mat-option  
+                                            *ngFor="let city of Cities"
+                                            [value]="city.id"
+                                          >
+                                          {{ isLangAr? city.nameAr : city.nameEn}}
+                                          </mat-option>
+                                        </mat-select>
+                                        <!-- <mat-error *ngIf="animalControl.hasError('required')"
+                                          >Please choose an animal</mat-error> -->
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label> {{'shared.phone-number' | translate}}  </label>
+                                    <input [(ngModel)]="model.phone" class="form-control" name="phone" type="tel"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>   {{'users.collection-limit' | translate}} </label>
+                                    <input [(ngModel)]="model.collectionLimit" class="form-control" name="collectionLimit" type="number"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>{{'users.owner-identity-number' | translate}}  </label>
+                                    <input [(ngModel)]="model.ownerIdentityNumber" class="form-control" name="ownerIdentityNumber" type="text"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>  {{'users.electronic-number' | translate}}  </label>
+                                    <input [(ngModel)]="model.electronicNumber" class="form-control" name="ElectronicNumber" type="text"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label>{{'shared.notes' | translate}}</label>
+                                    <textarea [(ngModel)]="model.note" class="form-control" name="note"></textarea>
+                                </div>
+                            </div>
+                          </div>
+                          <button class="btn btn-primary" type="submit">{{'shared.save' | translate}}</button>
+                        </form>
+                    </div>
+                  
+            
+        </div>
+      </div>
+      </div>
+  
+      </div>
+    </div>
+  </div>
+  

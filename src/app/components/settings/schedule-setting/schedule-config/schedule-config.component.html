@@ -1,0 +1,84 @@
+<div class="card card-xxl-stretch mb-5 mb-xl-8 animate__animated animate__zoomIn" *ngIf="currDiv == 'config'">
+    <!--begin::Header-->
+    <div class="card-header align-items-center d-flex border-0 pt-5" style="    margin-left: 1rem;
+    margin-top: 1rem;">
+        <h3 class="card-title d align-items-center flex-column">
+            <span class="card-label fw-bolder fs-3 mb-1"> {{ 'settings.ConfigurationTable' | translate }}</span>
+        </h3>
+        <div>
+</div>
+    </div>
+    <!--end::Header-->
+    <!--begin::Body-->
+    <div class="card-body py-3">
+        <form>
+            <div class="row">
+              
+                <div class="col-lg-6">
+                    <div class="form-group" >
+                        <label for="exampleInputEmail1"> {{ 'settings.startDayOfTheWeek' | translate }}</label>
+    <mat-form-field appearance="fill">
+                                  <mat-select [formControl]="animalControl" required>
+                                    <mat-option>--</mat-option>
+                                    <mat-option
+                                      *ngFor="let animal of animals"
+                                      [value]="animal"
+                                    >
+                                      {{ animal.name }}
+                                    </mat-option>
+                                  </mat-select>
+                        
+                                </mat-form-field>                      </div>
+                     
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group" >
+                        <label for="exampleInputEmail1"> {{ 'settings.defaultTimePeriod' | translate }}</label>
+    <mat-form-field appearance="fill">
+                                  <mat-select [formControl]="animalControl" required>
+                                    <mat-option>--</mat-option>
+                                    <mat-option
+                                      *ngFor="let animal of animals"
+                                      [value]="animal"
+                                    >
+                                      {{ animal.name }}
+                                    </mat-option>
+                                  </mat-select>
+                        
+                                </mat-form-field>                      </div>
+                     
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group" >
+                        <label for="exampleInputEmail1"> {{ 'settings.SettingSchedule' | translate }}</label>
+    <mat-form-field appearance="fill">
+                                  <mat-select [formControl]="animalControl" required>
+                                    <mat-option>--</mat-option>
+                                    <mat-option
+                                      *ngFor="let animal of animals"
+                                      [value]="animal"
+                                    >
+                                      {{ animal.name }}
+                                    </mat-option>
+                                  </mat-select>
+                        
+                                </mat-form-field>                      </div>
+                     
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group" >
+                        <label for="exampleInputEmail1"> {{ 'settings.Weekends' | translate }}</label>
+ 
+        <mat-form-field appearance="fill">
+            <mat-select [formControl]="toppings" multiple>
+              <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+                        
+                                              </div>
+                     
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3 mb-3">{{'shared.save' | translate }}</button>
+            </form>
+</div>
